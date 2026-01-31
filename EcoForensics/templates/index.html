@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Forensics Dashboard</title>
+    
+    <link rel="stylesheet" href="/static/style.css">
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <h1>🛰️ SAR-Hydra Forensics</h1>
+            <p>Sistem Audit Lingkungan & Deteksi Dini Banjir</p>
+        </header>
+
+        <div class="dashboard-grid">
+            <div class="control-panel">
+                <h3>📍 Lokasi Audit</h3>
+                <div class="input-group">
+                    <label>Latitude</label>
+                    <input type="number" id="lat" value="-6.9175" step="0.0001">
+                </div>
+                <div class="input-group">
+                    <label>Longitude</label>
+                    <input type="number" id="lon" value="107.6191" step="0.0001">
+                </div>
+                <button onclick="fetchPrediction()">📡 ANALISIS DATA</button>
+            </div>
+            
+            <div id="map-container">
+                <div id="map"></div> 
+            </div>
+        </div>
+
+        <div id="loading" class="hidden">
+            <div class="spinner"></div>
+            <p>Menghubungi Satelit Sentinel-1...</p>
+        </div>
+
+        <div id="result-area" class="hidden">
+            <div class="meta-box">
+                <div style="display: flex; justify-content: space-between; align-items: center;">
+                    <h3 id="global-status-text" style="margin: 0;">STATUS: MENUNGGU</h3>
+                    <span id="risk-badge" class="badge">--</span>
+                </div>
+                <hr style="border: 0; border-top: 1px solid #475569; margin: 10px 0;">
+                <p>📅 Tanggal Citra Satelit: <strong id="sat-date" style="color: #38bdf8;">-</strong></p>
+                <p>📡 Sumber Data: <span id="data-source">-</span></p>
+                <p id="gap-note" style="color: #facc15; font-size: 0.9em; font-style: italic;"></p>
+            </div>
+
+            <h2>📅 Prediksi Risiko 3 Hari Ke Depan</h2>
+            <div class="forecast-container" id="forecast-cards"></div>
+        </div>
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="/static/script.js"></script>
+</body>
+</html>
