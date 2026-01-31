@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Eco-Forensics | Deep Tech Audit</title>
+    
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="map"></div>
+
+    <div class="main-interface">
+        
+        <header class="glass-panel">
+            <div class="brand">
+                <span class="icon">🌿</span>
+                <div>
+                    <h1>ECO-FORENSICS</h1>
+                    <small>Audit Akuntabilitas Berbasis SAR-Hydra</small>
+                </div>
+            </div>
+        </header>
+
+        <section class="glass-panel control-panel">
+            <div class="search-box">
+                <input type="text" id="city-search" placeholder="Cari Kota (cth: Bandung)...">
+                <button id="btn-search">🔍</button>
+            </div>
+            
+            <div class="coord-container">
+                <div class="coord-inputs">
+                    <div class="field">
+                        <label>Latitude</label>
+                        <input type="number" id="lat" readonly placeholder="-">
+                    </div>
+                    <div class="field">
+                        <label>Longitude</label>
+                        <input type="number" id="lon" readonly placeholder="-">
+                    </div>
+                </div>
+                <button id="btn-mylocation" title="Lokasi Saya Saat Ini">📍</button>
+            </div>
+
+            <button id="btn-analyze" class="primary-btn">JALANKAN AUDIT FORENSIK</button>
+        </section>
+
+        <section id="forensic-dashboard" class="glass-panel hidden">
+            <div class="dash-header">
+                <h3>📊 Hasil Analisis AI</h3>
+                <button class="close-btn" onclick="toggleDashboard()">×</button>
+            </div>
+            
+            <div class="stats-grid">
+                <div class="stat">
+                    <span class="label">Sponge Effect</span>
+                    <h2 id="sat-val">--%</h2>
+                    <div class="bar-bg"><div id="sat-progress" class="bar-fill"></div></div>
+                </div>
+                <div class="stat">
+                    <span class="label">Prediksi Waktu</span>
+                    <h2 id="prediction-window" class="blink-text">--</h2>
+                </div>
+            </div>
+
+            <div class="alert-box" id="status-box">
+                <strong id="status-title">MENUNGGU DATA</strong>
+                <p id="recommendation">Pilih lokasi di peta untuk memulai audit.</p>
+            </div>
+        </section>
+
+    </div>
+
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

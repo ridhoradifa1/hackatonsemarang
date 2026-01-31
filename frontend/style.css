@@ -1,0 +1,81 @@
+:root {
+    --primary: #2d5a27;
+    --accent: #00ff88;
+    --danger: #ff4444;
+    --glass: rgba(15, 15, 15, 0.85);
+    --border: rgba(255, 255, 255, 0.15);
+}
+
+body { margin: 0; font-family: 'Plus Jakarta Sans', sans-serif; background: #000; overflow: hidden; }
+
+#map { position: absolute; top: 0; bottom: 0; width: 100%; z-index: 1; }
+
+.main-interface {
+    position: absolute; top: 20px; left: 20px; z-index: 100;
+    width: 380px; display: flex; flex-direction: column; gap: 15px;
+}
+
+.glass-panel {
+    background: var(--glass);
+    backdrop-filter: blur(10px);
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    padding: 15px;
+    color: white;
+    box-shadow: 0 8px 32px rgba(0,0,0,0.5);
+}
+
+/* Header */
+.brand { display: flex; align-items: center; gap: 10px; }
+.brand h1 { font-size: 1.1rem; margin: 0; color: var(--accent); }
+.brand small { font-size: 0.7rem; color: #aaa; }
+.icon { font-size: 1.5rem; }
+
+/* Controls */
+.search-box { display: flex; gap: 5px; margin-bottom: 15px; }
+.search-box input { flex: 1; background: rgba(255,255,255,0.1); border: none; padding: 10px; border-radius: 6px; color: white; outline: none; }
+.search-box button { background: rgba(255,255,255,0.2); border: none; border-radius: 6px; cursor: pointer; color: white; }
+
+.coord-container { display: flex; gap: 10px; align-items: flex-end; margin-bottom: 15px; }
+.coord-inputs { display: flex; gap: 10px; flex: 1; }
+.field { flex: 1; }
+.field label { font-size: 0.7rem; color: #888; display: block; margin-bottom: 4px; }
+.field input { width: 100%; background: rgba(0,0,0,0.3); border: 1px solid var(--border); color: var(--accent); padding: 8px; border-radius: 5px; font-family: monospace; }
+
+/* TOMBOL LOKASI SAYA */
+#btn-mylocation {
+    width: 42px; height: 42px;
+    background: var(--primary);
+    border: 1px solid var(--accent);
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.2rem;
+    display: flex; align-items: center; justify-content: center;
+    transition: 0.2s;
+}
+#btn-mylocation:hover { background: var(--accent); transform: scale(1.05); }
+
+.primary-btn {
+    width: 100%; padding: 12px;
+    background: linear-gradient(45deg, var(--primary), #1a3c16);
+    color: white; border: none; border-radius: 8px;
+    font-weight: 700; cursor: pointer; letter-spacing: 1px;
+}
+.primary-btn:hover { filter: brightness(1.2); }
+
+/* Dashboard */
+.hidden { display: none; }
+.dash-header { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.close-btn { background: none; border: none; color: white; font-size: 1.5rem; cursor: pointer; }
+
+.stats-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-bottom: 15px; }
+.stat h2 { margin: 5px 0; font-size: 1.4rem; }
+.label { font-size: 0.7rem; color: #aaa; }
+
+.bar-bg { background: rgba(255,255,255,0.1); height: 6px; border-radius: 3px; overflow: hidden; }
+.bar-fill { height: 100%; width: 0%; background: var(--accent); transition: width 1s; }
+
+.blink-text { animation: blink 1.5s infinite; color: var(--danger); }
+@keyframes blink { 0% { opacity: 1; } 50% { opacity: 0.5; } 100% { opacity: 1; } }
+
+.alert-box { background: rgba(255,255,255,0.05); padding: 10px; border-radius: 6px; border-left: 3px solid #555; font-size: 0.8rem; }
