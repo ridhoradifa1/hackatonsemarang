@@ -7,7 +7,7 @@ from model_utils import FloodDataset
 import os
 
 # 1. Konfigurasi
-EPOCHS = 20  # Tambah epoch agar lebih matang
+EPOCHS = 100  # Tambah epoch agar lebih matang
 BATCH_SIZE = 4 
 LEARNING_RATE = 0.0001 # Lebih kecil agar belajar lebih teliti
 
